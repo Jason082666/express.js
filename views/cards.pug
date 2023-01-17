@@ -1,0 +1,13 @@
+extends layout 
+block content 
+  .questionBox 
+    h2 Question: #{question} 
+    h3 hint: #{hint}
+
+    a(href='/cards') next challenge
+
+  br
+  form(action='/goodbye', method='post')
+    button(type='submit') logging out !
+
+

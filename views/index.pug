@@ -1,6 +1,9 @@
-doctype html
-html(lang="en")
-  head
-    title Landing Page
-  body
-    .page Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus provident fugiat quidem pariatur velit aut dolor quas excepturi adipisci neque?
+extends layout 
+
+block content
+    h2 Welcome #{name}! ready to start?
+    form(action='/ready', method='post')
+      button(type='submit') ready!
+    br  
+    form(action='/goodbye', method='post')
+      button(type='submit') good bye!
