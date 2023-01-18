@@ -6,10 +6,24 @@ const {cards} = data
 
 router.get('/',(req,res)=> {
   const number = Math.floor(Math.random()*cards.length)
-  const question = cards[number].question
-  const hint = cards[number].hint
+  res.redirect(`/cards/${number}?side=question`)
+})
 
-  res.render('cards',{question,hint})
+router.get('/:id',(req,res)=> {
+  const {id} = req.params
+  const {side} = req.query
+  const template = {}
+  template.id = id
+  template.question = cards[id].question
+  template.hint = cards[id].hint
+  if(side === 'answer') {
+    template.answer = cards[id].answer
+  } else if (side !== 'question') {
+    return res.redirect('/error')
+  }
+  
+
+  res.render('cards',template)
 })
 
 

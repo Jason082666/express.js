@@ -2,7 +2,7 @@ extends layout
 
 block content
   h2 Welcome students!
-  form(action='/hello', method='post')
-    label Please enter your name: 
-      input(type='text',name='username')
-    button(type='submit') Submit  
+  form(action='/hello', method='post',class='submit')
+    label.enterYourName Please enter your name: 
+      input(type='text',name='username' class='enterYourNameInput')
+    button(type='submit' class='button') Submit  

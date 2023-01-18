@@ -2,8 +2,9 @@ extends layout
 
 block content
     h2 Welcome #{name}! ready to start?
-    form(action='/ready', method='post')
-      button(type='submit') ready!
-    br  
-    form(action='/goodbye', method='post')
-      button(type='submit') good bye!
+    .mainBox
+      form(action='/ready', method='post')
+        button(type='submit' class='button') ready!
+      br  
+      form(action='/goodbye', method='post')
+        button(type='submit' class='button') good bye!

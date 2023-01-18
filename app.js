@@ -14,6 +14,7 @@ app.set('view engine', 'pug')
 app.use(mainRouts)
 app.use('/cards', cardRouts)
 app.use('/hello', helloRouts)
+app.use('/static',express.static('public'))
 
 
 app.post('/ready', (req, res) => {
@@ -26,7 +27,7 @@ app.post('/goodbye', (req, res) => {
   res.redirect('/hello')
 })
 
-app.use((req, res, next) => {
+app.get('/error',(req, res, next) => {
   const err = new Error('Not find!')
   err.status = 404
   next(err)

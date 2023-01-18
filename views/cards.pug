@@ -1,8 +1,19 @@
 extends layout 
 block content 
   .questionBox 
-    h2 Question: #{question} 
-    h3 hint: #{hint}
+    if answer
+      h2 answer: #{answer}
+      br
+      a(href=`/cards/${id}?side=question`) See the question again!
+      br
+      br
+    else  
+      h2 Question: #{question} 
+      h3 hint: #{hint}
+      br
+      a(href=`/cards/${id}?side=answer`) See the answer!
+      br
+      br
 
     a(href='/cards') next challenge
 
