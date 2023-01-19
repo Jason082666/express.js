@@ -27,7 +27,7 @@ app.post('/goodbye', (req, res) => {
   res.redirect('/hello')
 })
 
-app.get('/error',(req, res, next) => {
+app.use( (req, res, next) => {
   const err = new Error('Not find!')
   err.status = 404
   next(err)
